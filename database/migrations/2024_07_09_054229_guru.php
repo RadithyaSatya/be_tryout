@@ -22,6 +22,11 @@ return new class extends Migration
             $table->string('matpel',20);
             $table->timestamps();
             $table->softDeletes();
+
+            // References to Table user
+            $table->foreign('id_guru')
+            ->references('username')
+            ->on('users');  
         });
     }
 
