@@ -21,14 +21,16 @@ return new class extends Migration
             $table->string("kelas",10);
             $table->string("ws1",35);
             $table->string("ws2",35)->nullable();
-            $table->string("tws1",13);
-            $table->string("tws2",13)->nullable();
-            $table->string("ts",13);
+            $table->string("tws1",20);
+            $table->string("tws2",20)->nullable();
+            $table->string("ts",20);
             $table->string("foto",255);
-            $table->string("username",15);
+            $table->string("username",50);
             $table->timestamps();
             $table->softDeletes();
+             
         });
+
     }
 
     /**

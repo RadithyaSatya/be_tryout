@@ -33,7 +33,7 @@ return new class extends Migration
             // Tambahkan foreign key constraints
             $table->foreign('id_guru')
                   ->references('id_guru')
-                  ->on('guru');
+                  ->on('guru'); 
         });
         
     }

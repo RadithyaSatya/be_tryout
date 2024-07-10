@@ -2,17 +2,21 @@
 
 namespace Database\Seeders;
 
+use App\Models\Guru;
+use App\Models\User;
 use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class SiswaSeeder extends Seeder
+class GuruSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Siswa::factory(5)->create();
+        Guru::factory(5)->create()->each(function ($guru) {
+            // Additional logic if needed
+        });
     }
 }
