@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Guru;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\GuruSeeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\SiswaSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // $this->call(UserSeeder::class);
+        User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::all()->each(function($user){
+            Guru::factory()->create(['id_guru' => $user->username]);
+        });
     }
 }
