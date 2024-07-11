@@ -28,11 +28,7 @@ return new class extends Migration
             $table->string("username",50);
             $table->timestamps();
             $table->softDeletes();
-            
-            // Add Relation to table users
-            $table->foreign('nis')
-            ->references('username')
-            ->on('users');
+             
         });
 
     }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Guru;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 use Database\Seeders\GuruSeeder;
 use Database\Seeders\UserSeeder;
@@ -18,10 +19,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // $this->call(UserSeeder::class);
-        User::factory(10)->create();
+        Guru::factory(10)->create();
+        Siswa::factory(10)->create();
 
-        User::all()->each(function($user){
-            Guru::factory()->create(['id_guru' => $user->username]);
+        Guru::all()->each(function($guru){
+            User::factory()->create(['username' => $guru->id_guru, 'level' => 'Guru']);
+        });
+
+        Siswa::all()->each(function($siswa){
+            User::factory()->create(['username' => $siswa->nis, 'level' => 'Siswa']);
         });
     }
 }

@@ -14,11 +14,13 @@ class GuruFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected static $counter = 1;
     public function definition(): array
     {
+        $sequence = self::$counter++; 
         $photo = 'Photo'.$this->faker->numberBetween(1,9).'.jpg';
         return [
-            'id_guru' => $this->faker->userName,
+            'id_guru' => 'guru_'. str_pad($sequence, 3, '0',STR_PAD_LEFT),
             'nama' => $this->faker->name,
             'tgl_lahir' => $this->faker->date($format='Y-m-d', $max='now'),
             'jk' => $this->faker->randomElement(['L','P']),

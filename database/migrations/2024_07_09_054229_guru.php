@@ -23,10 +23,6 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            // References to Table user
-            $table->foreign('id_guru')
-            ->references('username')
-            ->on('users');  
         });
     }
 
