@@ -34,4 +34,20 @@ class AuthController extends Controller
             ],500);
         }
     }
+
+    public function logout(Request $request){
+        try{
+            auth()->user()->tokens()->delete();
+            return response()->json([
+                "status"=>true,
+                "message"=>"Logout Berhasil"
+            ],201);
+        }
+        catch(\Throwable $th){
+            return response()->json([
+                "status"=>false,
+                "message"=>$th->getMessage()
+            ],500);
+        }
+    }
 }
